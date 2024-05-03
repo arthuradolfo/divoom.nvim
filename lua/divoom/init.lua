@@ -9,7 +9,7 @@ M.show_icons = true
 
 local function setup_autocmds()
 	for language, file_extensions in pairs(settings.current.languages_mapping) do
-		vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+		vim.api.nvim_create_autocmd({"BufEnter"}, {
 			pattern = file_extensions,
 			callback = function()
 				if M.show_icons == false then
