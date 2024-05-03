@@ -35,6 +35,9 @@ function M.setup(config)
         settings.set(config)
     end
 
+	os.execute( "mkdir " .. settings.current.install_root_dir )
+	os.execute( "mkdir " .. settings.current.install_root_dir .. "log" )
+
     vim.env.DIVOOM = settings.current.install_root_dir
 
     require "divoom.api.command"

@@ -4,11 +4,15 @@ local M = {}
 local DEFAULT_SETTINGS = {
 	---@since 1.0.0
 	-- Directory to install dependencies (divoom api clients)
-	install_root_dir = table.concat( { vim.fn.stdpath "data", "/divoom" } ),
+	install_root_dir = table.concat(
+		{ vim.fn.stdpath "data", "/plugged", "/divoom.nvim" }
+	),
 
 	---@since 1.0.0
 	-- Log file
-	log_file = table.concat( { vim.fn.stdpath "data", "/divoom", "/log", "/log.txt" } ),
+	log_file = table.concat(
+		{ vim.fn.stdpath "data", "/plugged", "/divoom.nvim", "/log", "/log.txt" }
+	),
 
 	---@since 1.0.0
 	-- File extensions mapping
