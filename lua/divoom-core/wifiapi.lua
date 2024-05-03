@@ -63,9 +63,9 @@ function M.start_server(address)
 
 	os.execute(
 		table.concat( {
-			"cd ",
-			settings.current.install_root_dir, "/wifi",
-			" & docker-compose up -d"
+			"docker-compose -f ",
+			settings.current.install_root_dir, "/wifi/docker-compose.yml",
+			" up -d"
 		} )
 	)
 
@@ -75,7 +75,9 @@ end
 function M.stop_server()
 	os.execute(
 		table.concat( {
-			settings.current.install_root_dir, "wifi", "docker-compose down"
+			"docker-compose -f ",
+			settings.current.install_root_dir, "/wifi/docker-compose.yml",
+			" down"
 		} )
 	)
 end

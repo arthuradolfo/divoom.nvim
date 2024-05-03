@@ -5,7 +5,7 @@ local M = {}
 
 ---@param address string
 ---@param icon string
-function M.send_icon( address, icon )
+function M.show_icon( address, icon )
 	log.write( "Sending icon information for bluetooth device"..address..".", log.levels.INFO )
 	os.execute(
 		table.concat( {

@@ -1,3 +1,5 @@
+local btapi		= require( "divoom-core.btapi" )
+local wifiapi	= require( "divoom-core.wifiapi" )
 local settings	= require( "divoom.settings" )
 
 local M = {}
@@ -16,9 +18,9 @@ local function setup_autocmds()
 				local i = 0
 				for _, devices in pairs(settings.current.devices) do
 					if devices.type == "IP" then
-						require( "divoom-core.wifiapi" ).send_icon( devices.address, settings.current.icons_mapping[language][i] )
+						wifiapi.show_icon( devices.address, settings.current.icons_mapping[language][i] )
 					elseif devices.type == "BT" then
-						require( "divoom-core.btapi" ).send_icon( devices.address, settings.current.icons_mapping[language][i] )
+						btapi.show_icon( devices.address, settings.current.icons_mapping[language][i] )
 					end
 					i = i + 1
 				end
@@ -33,8 +35,7 @@ function M.setup(config)
         settings.set(config)
     end
 
-	os.execute( "mkdir " .. settings.current.install_root_dir )
-	os.execute( "mkdir " .. settings.current.install_root_dir .. "log" )
+	os.execute( "mkdir " .. settings.current.install_root_dir .. "/log" )
 
     vim.env.DIVOOM = settings.current.install_root_dir
 
