@@ -5,7 +5,7 @@ local settings	= require( "divoom.settings" )
 local M = {}
 
 local function setup_autocmds()
-	for language, file_extensions in settings.current.languages_mapping do
+	for language, file_extensions in pairs(settings.current.languages_mapping) do
 		vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 			pattern = file_extensions,
 			callback = function()
@@ -13,7 +13,7 @@ local function setup_autocmds()
 					return
 				end
 				local i = 0
-				for _, devices in settings.current.devices do
+				for _, devices in pairs(settings.current.devices) do
 					if devices.type == "IP" then
 						wifiapi.send_icon( devices.address, settings.current.icons_mapping[language][i] )
 					elseif devices.type == "BT" then
