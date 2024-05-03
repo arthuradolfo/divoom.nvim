@@ -29,7 +29,7 @@ local function send_icon( icon )
 end
 
 ---@param address string
-function M.start_server(address)
+local function start_server(address)
 	log.write(
 		table.concat( { "Starting server for client ", address } ),
 		log.levels.INFO
@@ -72,7 +72,7 @@ function M.start_server(address)
 	log.write( "Server started.", log.levels.INFO )
 end
 
-function M.stop_server()
+local function stop_server()
 	os.execute(
 		table.concat( {
 			"docker-compose -f ",
@@ -85,11 +85,11 @@ end
 ---@param address string
 ---@param icon string
 function M.show_icon( address, icon )
-	M.start_server( address )
+	start_server( address )
 
 	send_icon( icon )
 
-	M.stop_server()
+	stop_server()
 end
 
 return M
