@@ -1,5 +1,3 @@
-local btapi		= require( "divoom-core.btapi" )
-local wifiapi	= require( "divoom-core.wifiapi" )
 local settings	= require( "divoom.settings" )
 
 local M = {}
@@ -18,9 +16,9 @@ local function setup_autocmds()
 				local i = 0
 				for _, devices in pairs(settings.current.devices) do
 					if devices.type == "IP" then
-						wifiapi.send_icon( devices.address, settings.current.icons_mapping[language][i] )
+						require( "divoom-core.wifiapi" ).send_icon( devices.address, settings.current.icons_mapping[language][i] )
 					elseif devices.type == "BT" then
-						btapi.send_icon( devices.address, settings.current.icons_mapping[language][i] )
+						require( "divoom-core.btapi" ).send_icon( devices.address, settings.current.icons_mapping[language][i] )
 					end
 					i = i + 1
 				end
