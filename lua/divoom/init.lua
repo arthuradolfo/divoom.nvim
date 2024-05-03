@@ -15,7 +15,7 @@ local function setup_autocmds()
 				if M.show_icons == false then
 					return
 				end
-				local i = 0
+				local i = 1
 				for _, devices in pairs(settings.current.devices) do
 					if devices.type == "IP" then
 						wifiapi.show_icon( devices.address, settings.current.icons_mapping[language][i] )

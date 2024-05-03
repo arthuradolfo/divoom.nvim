@@ -9,6 +9,16 @@ M.server_started = false
 -- Sends a post with icon path to Wifi Device
 local function send_icon( icon )
 	os.execute(
+	[[
+		curl -X 'POST' \
+		'http://localhost:5000/fill' \
+		-H 'accept: application/json' \
+		-H 'Content-Type: application/x-www-form-urlencoded' \
+		-d 'r=1&g=1&b=1&push_immediately=true'
+	]]
+	)
+
+	os.execute(
 		"curl -X 'POST' "..
 		"'http://localhost:5000/image' "..
 		"-H 'accept: application/json' "..
@@ -22,8 +32,8 @@ local function send_icon( icon )
 			}
 		)..
 		";type=image/png\" "..
-		"-F 'x=45' "..
-		"-F 'y=16' "..
+		"-F 'x=0' "..
+		"-F 'y=0' "..
 		"-F 'push_immediately=true'"
 	)
 end
