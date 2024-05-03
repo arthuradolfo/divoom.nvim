@@ -8,6 +8,7 @@ M.server_started = false
 ---@param icon string
 -- Sends a post with icon path to Wifi Device
 local function send_icon( icon )
+	os.execute( "sleep 1" )
 	os.execute(
 	[[
 		curl -X 'POST' \
