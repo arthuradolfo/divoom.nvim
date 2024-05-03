@@ -52,8 +52,8 @@ local DEFAULT_SETTINGS = {
 	-- of devices here
 	devices = {
 		mypixoo64	= { address = "192.168.0.11", type = "IP" },
-		mytimebox	= { address = "11:75:58:5D:C6:88", type = "BT" },
-		myditoo		= { address = "B1:21:81:64:41:9D", type = "BT" },
+	--	mytimebox	= { address = "11:75:58:5D:C6:88", type = "BT" },
+	--	myditoo		= { address = "B1:21:81:64:41:9D", type = "BT" },
 	}
 }
 

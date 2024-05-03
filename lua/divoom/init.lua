@@ -4,6 +4,9 @@ local settings	= require( "divoom.settings" )
 
 local M = {}
 
+M.has_setup = false
+M.show_icons = true
+
 local function setup_autocmds()
 	for language, file_extensions in pairs(settings.current.languages_mapping) do
 		vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
@@ -25,9 +28,6 @@ local function setup_autocmds()
 		})
 	end
 end
-
-M.has_setup = false
-M.show_icons = true
 
 ---@param config DivoomSettings?
 function M.setup(config)
