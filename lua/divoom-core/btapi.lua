@@ -9,7 +9,7 @@ function M.show_icon( address, icon )
 	log.write( "Sending icon information for bluetooth device"..address..".", log.levels.INFO )
 	os.execute(
 		table.concat( {
-			"node "
+			"node ",
 			settings.current.install_root_dir,
 			"/bt/",
 			"bt.js ",
@@ -18,7 +18,7 @@ function M.show_icon( address, icon )
 			settings.current.install_root_dir,
 			"/icons/",
 			icon,
-		})
+		} )
 	)
 	log.write( "Icon sent.", log.levels.INFO )
 end
