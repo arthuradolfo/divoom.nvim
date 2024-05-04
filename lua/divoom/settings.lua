@@ -51,9 +51,9 @@ local DEFAULT_SETTINGS = {
 	-- Number of icons per language on icons_mapping should match with number 
 	-- of devices here
 	devices = {
-		mypixoo64	= { address = "192.168.0.11", type = "IP" },
-	--	mytimebox	= { address = "11:75:58:5D:C6:88", type = "BT" },
-	--	myditoo		= { address = "B1:21:81:64:41:9D", type = "BT" },
+		mypixoo64	= { address = "192.168.0.1", type = "IP" },
+		mytimebox	= { address = "FF:FF:FF:FF:FF:FF", type = "BT" },
+		myditoo		= { address = "FF:FF:FF:FF:FF:FF", type = "BT" },
 	}
 }
 
