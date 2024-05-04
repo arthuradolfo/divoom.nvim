@@ -60,4 +60,9 @@ local DEFAULT_SETTINGS = {
 M.DEFAULT_SETTINGS = DEFAULT_SETTINGS
 M.current = DEFAULT_SETTINGS
 
+---@param opts DivoomSettings
+function M.set(opts)
+    M.current = vim.tbl_deep_extend("force", vim.deepcopy(M.current), opts)
+end
+
 return M
