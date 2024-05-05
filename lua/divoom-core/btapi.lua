@@ -7,7 +7,7 @@ local M = {}
 ---@param icon string
 function M.show_icon( address, icon )
 	log.write( "Sending icon information for bluetooth device"..address..".", log.levels.INFO )
-	os.execute(
+	vim.fn.jobstart(
 		table.concat( {
 			"node ",
 			settings.current.install_root_dir,

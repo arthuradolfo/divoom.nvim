@@ -3,46 +3,11 @@ local log = require( 'divoom-core.log' )
 
 local M = {}
 
-M.server_started = false
-
----@param icon string
--- Sends a post with icon path to Wifi Device
-local function send_icon( icon )
-	os.execute( "sleep 1" )
-	os.execute(
-	[[
-		curl -X 'POST' \
-		'http://localhost:5000/fill' \
-		-H 'accept: application/json' \
-		-H 'Content-Type: application/x-www-form-urlencoded' \
-		-d 'r=1&g=1&b=1&push_immediately=true'
-	]]
-	)
-
-	os.execute(
-		"curl -X 'POST' "..
-		"'http://localhost:5000/image' "..
-		"-H 'accept: application/json' "..
-		"-H 'Content-Type: multipart/form-data' "..
-		"-F \"image=@"..
-		table.concat(
-			{
-				settings.current.install_root_dir,
-				"/icons/",
-				icon
-			}
-		)..
-		";type=image/png\" "..
-		"-F 'x=0' "..
-		"-F 'y=0' "..
-		"-F 'push_immediately=true'"
-	)
-end
-
 ---@param address string
-local function start_server(address)
+---@param icon string
+local function config_server(address, icon)
 	log.write(
-		table.concat( { "Starting server for client ", address } ),
+		table.concat( { "Configuring server for client ", address } ),
 		log.levels.INFO
 	)
 
@@ -72,35 +37,21 @@ local function start_server(address)
 	fp:write( env_file_content )
 	fp:close()
 
-	os.execute(
-		table.concat( {
-			"docker-compose -f ",
-			settings.current.install_root_dir, "/wifi/docker-compose.yml",
-			" up -d"
-		} )
-	)
+	vim.env.DIVOOM_ICON = icon
 
-	log.write( "Server started.", log.levels.INFO )
-end
-
-local function stop_server()
-	os.execute(
-		table.concat( {
-			"docker-compose -f ",
-			settings.current.install_root_dir, "/wifi/docker-compose.yml",
-			" down"
-		} )
-	)
+	log.write( "Server configured.", log.levels.INFO )
 end
 
 ---@param address string
 ---@param icon string
 function M.show_icon( address, icon )
-	start_server( address )
+	config_server( address, icon )
 
-	send_icon( icon )
-
-	stop_server()
+	vim.fn.jobstart( table.concat( {
+		settings.current.install_root_dir,
+		"/bash/",
+		"wifiapi.sh"
+	} ) )
 end
 
 return M
