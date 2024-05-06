@@ -16,10 +16,10 @@ curl -X 'POST' \
 
 echo "Screen reseted."
 
-curl -X 'POST' "..
-	'http://localhost:5000/image' "..
-	-H 'accept: application/json' "..
-	-H 'Content-Type: multipart/form-data' "..
+curl -X 'POST' \
+	'http://localhost:5000/image' \
+	-H 'accept: application/json' \
+	-H 'Content-Type: multipart/form-data' \
 	-F "image=@$DIVOOM/icons/$DIVOOM_ICON;type=image/png" \
 	-F 'x=0' \
 	-F 'y=0' \
