@@ -25,7 +25,8 @@ local DEFAULT_SETTINGS = {
 		lua			=	{ "*.lua" },
 		python		=	{ "*.py" },
 		basic		=	{ "*.bas", "*.bpp" },
-		javascript	=	{ "*.js" }
+		javascript	=	{ "*.js" },
+		neovim		=	{ "*.vimrc" }
 	},
 
 	---@since 1.0.0
@@ -43,7 +44,8 @@ local DEFAULT_SETTINGS = {
 		lua			=	{ "lua.png", "lua.png", "lua.png" },
 		python		=	{ "python.png", "python.png", "python.png" },
 		basic		=	{ "basic.png", "basic.png", "basic.png" },
-		javascript	=	{ "js.png", "js.png", "js.png" }
+		javascript	=	{ "js.png", "js.png", "js.png" },
+		neovim		=	{ "neovim.png", "neovim.png", "neovim.png" }
 	},
 
 	---@since 1.0.0
