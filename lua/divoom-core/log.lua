@@ -24,7 +24,7 @@ function M.write( msg, level )
 		{ "[", os.date( "%Y-%m-%d %H:%M:%S" ), "] " }
 	)
 
-	M.fp:write( table.concat( { current_date, level, ": ", msg } ) )
+	M.fp:write( table.concat( { current_date, level, ": ", msg, "\n" } ) )
 	M.fp:flush()
 end
 
