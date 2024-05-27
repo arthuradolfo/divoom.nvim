@@ -25,6 +25,7 @@ local DEFAULT_SETTINGS = {
 		lua			=	{ "*.lua" },
 		python		=	{ "*.py" },
 		basic		=	{ "*.bas", "*.bpp" },
+		javascript	=	{ "*.js" }
 	},
 
 	---@since 1.0.0
@@ -42,6 +43,7 @@ local DEFAULT_SETTINGS = {
 		lua			=	{ "lua.png", "lua.png", "lua.png" },
 		python		=	{ "python.png", "python.png", "python.png" },
 		basic		=	{ "basic.png", "basic.png", "basic.png" },
+		javascript	=	{ "js.png", "js.png", "js.png" }
 	},
 
 	---@since 1.0.0
